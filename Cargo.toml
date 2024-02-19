@@ -1,0 +1,25 @@
+[package]
+name = "tinygrad"
+version = "0.1.0"
+edition = "2021"
+description = "You like pytorch? You like micrograd? You love tinygrad! ❤️"
+license = "MIT"
+keywords = ["pytorch", "machine-learning ", "deep-learning", "tinygrad"]
+categories = ["Science"]
+repository = "https://github.com/wiseaidev/tinygrad"
+documentation = "https://docs.rs/tinygrad"
+authors = ["Mahmoud Harmouch <oss@wiseai.dev>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ndarray = "0.15.6"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = "thin"
+strip = "symbols"
